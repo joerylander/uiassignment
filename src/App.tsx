@@ -1,40 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { DEFAULT_VALUES } from "./constants";
 import Home from "./pages/Home";
-
-const DEFAULT_VALUES = {
-  version: "version_number",
-  devices: [
-    {
-      sysids: [""],
-      icon: {
-        id: "",
-        resolutions: [[0]],
-      },
-      line: {
-        name: "",
-        id: "",
-      },
-      guids: [""],
-      uisp: {
-        nameLegacy: [""],
-        bleServices: {},
-        line: "",
-        firmware: {
-          board: [""],
-          platform: "",
-        },
-      },
-      product: {
-        abbrev: "",
-        name: "",
-      },
-      shortnames: [""],
-      triplets: [""],
-      id: "",
-    },
-  ],
-};
 
 function App() {
   const [data, setData] = useState<DataType>(DEFAULT_VALUES);
