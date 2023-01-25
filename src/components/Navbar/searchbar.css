@@ -1,10 +1,9 @@
 .nav {
   height: 6rem;
-  background-color: cadetblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--custom-gray-bg-light);
+  border-bottom: 2px solid var(--custom-gray-bg-light);
   padding: 0 2rem;
 }
 
@@ -14,11 +13,29 @@
 }
 
 .nav__container {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .nav__container > * {
   padding: 0 2rem;
+}
+
+.nav__view--list {
+  display: flex;
+  align-items: center;
+}
+
+.nav__view--grid {
+  display: flex;
+  align-items: center;
+}
+
+.preview-zone {
+  display: inline-block;
+  padding: 30px;
+  margin: 15px;
+  background-color: #1a1a1a;
 }

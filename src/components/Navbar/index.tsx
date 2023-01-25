@@ -18,6 +18,23 @@ const Navbar = () => {
 
   return (
     <nav className="nav">
+      {/* <div className="preview-zone">
+        <h4>Icon Search</h4>
+        <section className="search search--icon" role="search">
+          <form action="#" method="get" className="search__form">
+            <input
+              id="icon-search"
+              className="search__input"
+              type="search"
+              name="search"
+              maxlength="100"
+              placeholder="I am looking for..."
+              required
+            />
+            <button className="search__btn-submit" type="submit"></button>
+          </form>
+        </section>
+      </div> */}
       <input
         type="text"
         placeholder="Search..."
