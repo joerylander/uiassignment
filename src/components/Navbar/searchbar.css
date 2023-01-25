@@ -1,0 +1,24 @@
+.nav {
+  height: 6rem;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--custom-gray-bg-light);
+  padding: 0 2rem;
+}
+
+.nav__searchbar {
+  height: 2rem;
+  background-color: var(--custom-gray-bg-light);
+}
+
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.nav__container > * {
+  padding: 0 2rem;
+}
