@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { DEFAULT_VALUES } from "./constants";
 import Home from "./pages/Home";
+import "./styles.css";
 
 function App() {
   const [data, setData] = useState<DataType>(DEFAULT_VALUES);
@@ -17,7 +18,7 @@ function App() {
       setIsLoaded(true);
     })();
   }, []);
-  console.log(data?.devices);
+
   return <>{loaded && <Home data={data} />}</>;
 }
 

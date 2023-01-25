@@ -1,13 +1,15 @@
 import React from "react";
+import Header from "../components/Header";
 
 type HomeProps = {
-  data: any;
+  data: DataType;
 };
 
 const Home: React.FC<HomeProps> = ({ data }) => {
   const { devices } = data;
   return (
     <>
+      <Header />
       <h1>Home</h1>
       <p>{data?.version}</p>
       <ul>
