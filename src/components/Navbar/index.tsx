@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./searchbar.css";
 import { BsFillGridFill, BsGrid, BsListTask, BsListUl } from "react-icons/bs";
-
+import searchicon from "../../images/searchicon.png";
+import Searchbar from "../SearchBar";
 const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
 
@@ -15,6 +16,18 @@ const Navbar = () => {
   //     return country.name.match(searchInput);
   //   });
   // }
+  const getSearchBar = () => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.preventDefault();
+      console.log(e.target.value);
+
+      setSearchInput(e.target.value);
+    };
+
+    return (
+      <Searchbar placeholder="Search..." onChange={(e) => handleChange(e)} />
+    );
+  };
 
   return (
     <nav className="nav">
@@ -35,26 +48,37 @@ const Navbar = () => {
           </form>
         </section>
       </div> */}
-      <input
-        type="text"
-        placeholder="Search..."
-        className="nav__searchbar"
-        onChange={handleChange}
-        value={searchInput}
-      />
+      {/* <section className="nav__searchbar" role="search"> */}
+      {/* <form action="submit" className="nav__searchbar">
+        <button className="nav__searchbar--submit" type="submit">
+          <img src={searchicon} />
+        </button>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="nav__searchbar--input"
+          onChange={handleChange}
+          value={searchInput}
+        />
+        <button className="nav__searchbar--reset" type="reset">
+          X
+        </button>
+      </form> */}
+      {getSearchBar()}
+      {/* </section> */}
 
-      <div className="nav__container">
-        <div className="nav__view--list">
+      <section className="nav__container">
+        <button className="nav__view--list">
           <BsListTask style={{ width: "2.5rem", height: "2.5rem" }} />
           {/* <BsListUl style={{ width: "2.5rem", height: "2.5rem" }} /> */}
-        </div>
-        <div className="nav__view--grid">
+        </button>
+        <button className="nav__view--grid">
           {/* <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} /> */}
           <BsGrid style={{ width: "2rem", height: "2rem" }} />
-        </div>
+        </button>
         {/* Expand filter when clicked on that lists checkbox with names of products */}
-        <div className="nav__filter">Filter</div>
-      </div>
+        <button className="nav__filter">Filter</button>
+      </section>
     </nav>
   );
 };
