@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import "./searchbar.css";
+import "./navbar.css";
 import { BsFillGridFill, BsGrid, BsListTask, BsListUl } from "react-icons/bs";
-import searchicon from "../../images/searchicon.png";
 import Searchbar from "../SearchBar";
+import GridViewIcon from "@mui/icons-material/GridView";
+import { Button, IconButton } from "@mui/material";
+
+type NavbarType = {};
+
 const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
 
@@ -68,16 +72,19 @@ const Navbar = () => {
       {/* </section> */}
 
       <section className="nav__container">
-        <button className="nav__view--list">
-          <BsListTask style={{ width: "2.5rem", height: "2.5rem" }} />
+        <IconButton>
+          <BsListTask style={{ width: "3rem", height: "2.5rem" }} />
           {/* <BsListUl style={{ width: "2.5rem", height: "2.5rem" }} /> */}
-        </button>
-        <button className="nav__view--grid">
-          {/* <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} /> */}
+        </IconButton>
+
+        {/* <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} /> */}
+        <IconButton>
           <BsGrid style={{ width: "2rem", height: "2rem" }} />
-        </button>
-        {/* Expand filter when clicked on that lists checkbox with names of products */}
-        <button className="nav__filter">Filter</button>
+        </IconButton>
+        <Button variant="text" style={{ color: "#606060", fontWeight: "500" }}>
+          {/* Expand filter when clicked on that lists checkbox with names of products */}
+          Filter
+        </Button>
       </section>
     </nav>
   );

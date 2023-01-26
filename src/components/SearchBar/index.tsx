@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Input } from "@mui/material";
+import { Box, IconButton, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 type SearchBarType = {
@@ -10,7 +10,9 @@ type SearchBarType = {
 const Searchbar: React.FC<SearchBarType> = ({ placeholder, onChange }) => {
   return (
     <Box className="nav__searchbar">
-      <SearchIcon />
+      <IconButton onClick={(e: any) => console.log(e)}>
+        <SearchIcon />
+      </IconButton>
       <Input
         className="nav__searchbar--input"
         placeholder={placeholder}

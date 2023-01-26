@@ -44,13 +44,6 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
       <Navbar />
       {/* {loaded && <Table data={countries} />} */}
       <Table data={countries} />
-      <h1>Home</h1>
-      <p>{data?.version}</p>
-      <ul>
-        {/* {devices?.map((device: any, i: number) => {
-          return <li key={i}>{device}</li>;
-        })} */}
-      </ul>
     </>
   );
 };
