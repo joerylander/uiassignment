@@ -5,32 +5,15 @@ import Searchbar from "../SearchBar";
 import GridViewIcon from "@mui/icons-material/GridView";
 import { Button, IconButton } from "@mui/material";
 
-type NavbarType = {};
+type NavbarType = {
+  columns: any;
+};
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarType> = ({ columns }) => {
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
-
-  // if (searchInput.length > 0) {
-  //   countries.filter((country) => {
-  //     return country.name.match(searchInput);
-  //   });
-  // }
-  const getSearchBar = () => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      e.preventDefault();
-      console.log(e.target.value);
-
-      setSearchInput(e.target.value);
-    };
-
-    return (
-      <Searchbar placeholder="Search..." onChange={(e) => handleChange(e)} />
-    );
+    console.log(e.target.value);
   };
 
   return (
@@ -68,7 +51,7 @@ const Navbar = () => {
           X
         </button>
       </form> */}
-      {getSearchBar()}
+      <Searchbar placeholder="Search..." onChange={handleChange} />
       {/* </section> */}
 
       <section className="nav__container">

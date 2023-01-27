@@ -13,6 +13,7 @@ const Searchbar: React.FC<SearchBarType> = ({ placeholder, onChange }) => {
       <IconButton onClick={(e: any) => console.log(e)}>
         <SearchIcon />
       </IconButton>
+
       <Input
         className="nav__searchbar--input"
         placeholder={placeholder}

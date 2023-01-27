@@ -1,8 +1,8 @@
-import { count } from "console";
-import React from "react";
+import React, { useMemo } from "react";
+import { COLUMNS } from "../columns";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import Table from "../components/Table";
+import TableView from "../components/TableView";
 
 type HomeProps = {
   data: DataType;
@@ -37,13 +37,15 @@ const countries = [
 ];
 
 const Home: React.FC<HomeProps> = ({ data, loaded }) => {
-  const { devices } = data;
+  const columns = useMemo(() => COLUMNS, []);
+  console.log(data);
+
   return (
     <>
       <Header />
-      <Navbar />
-      {/* {loaded && <Table data={countries} />} */}
-      <Table data={countries} />
+      <Navbar columns={columns} />
+      {/* {loaded && <TableView data={countries} />} */}
+      <TableView data={data.devices} columns={columns} />
     </>
   );
 };
