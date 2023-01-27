@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { useFilters, useGlobalFilter, useSortBy, useTable } from "react-table";
+import {
+  TableOptions,
+  useFilters,
+  useGlobalFilter,
+  useSortBy,
+  useTable,
+} from "react-table";
 import "./table.css";
 
 type TableViewType = {
-  data: any;
+  data: DeviceType[];
   columns: any;
 };
 
@@ -33,9 +39,6 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
         <tbody {...getTableBodyProps()}>
           {rows.map((row, i) => {
             prepareRow(row);
-            if (i === 1) {
-              console.log(row);
-            }
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {

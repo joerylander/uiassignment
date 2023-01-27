@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
 import GridView from "../components/GridView";
+import { filterProducts } from "../utils";
 
 type HomeProps = {
   data: DataType;
@@ -17,10 +18,15 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
   const [viewState, setViewState] = useState<ViewType>("list");
   const [filterInput, setFilterInput] = useState("");
 
+  const searchedProducts = filterProducts(data.devices, filterInput);
+
   const renderView = () => {
+    if (searchedProducts.length === 0) {
+      return <p>The product you searched for does not exist!</p>;
+    }
     switch (viewState) {
       case "list":
-        return <TableView data={data.devices} columns={columns} />;
+        return <TableView data={searchedProducts} columns={columns} />;
       case "grid":
         return <GridView />;
       default:

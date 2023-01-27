@@ -25,3 +25,13 @@ export const iconUrlGenerator = (id: string, resolutions: number[]) => {
   const resString = resolutions.join("x");
   return `https://static.ui.com/fingerprint/ui/icons/${id}_${resString}.png`;
 };
+
+export const filterProducts = (data: DeviceType[], value: string) => {
+  const regEx = new RegExp(value, "gi");
+  const items = data.filter((item) => {
+    return (
+      (regEx.test(item.product.name) || regEx.test(item.line.name)) && item
+    );
+  });
+  return items;
+};

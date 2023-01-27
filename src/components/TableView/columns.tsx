@@ -7,7 +7,6 @@ export const COLUMNS = [
     Header: "Devices",
     accessor: "icon",
     Cell: ({ cell: { value } }: CellProps<{}>) => {
-      console.log(value.resolutions);
       const correctResolution = resolutionSelector("xs", value.resolutions);
       const imageSrc = iconUrlGenerator(value.id, correctResolution);
       return <img src={imageSrc} />;
