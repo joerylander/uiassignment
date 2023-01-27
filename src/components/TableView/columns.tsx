@@ -1,6 +1,5 @@
 import { CellProps } from "react-table";
 import { iconUrlGenerator, resolutionSelector } from "../../utils";
-import Searchbar from "../SearchBar";
 
 export const COLUMNS = [
   {
@@ -11,16 +10,13 @@ export const COLUMNS = [
       const imageSrc = iconUrlGenerator(value.id, correctResolution);
       return <img src={imageSrc} />;
     },
-    Filter: Searchbar,
   },
   {
     Header: "Product Line",
     accessor: "line.name",
-    Filter: Searchbar,
   },
   {
     Header: "Name",
     accessor: "product.name",
-    Filter: Searchbar,
   },
 ];

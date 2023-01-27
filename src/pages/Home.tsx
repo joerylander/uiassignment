@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
 import GridView from "../components/GridView";
 import { filterProducts } from "../utils";
+import "./home.css";
 
 type HomeProps = {
   data: DataType;
@@ -43,7 +44,7 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
         filterInput={filterInput}
         setFilterInput={setFilterInput}
       />
-      {renderView()}
+      <main className="main">{renderView()}</main>
     </>
   );
 };

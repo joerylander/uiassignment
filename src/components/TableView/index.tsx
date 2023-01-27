@@ -1,11 +1,5 @@
-import React, { useState } from "react";
-import {
-  TableOptions,
-  useFilters,
-  useGlobalFilter,
-  useSortBy,
-  useTable,
-} from "react-table";
+import React from "react";
+import { useTable } from "react-table";
 import "./table.css";
 
 type TableViewType = {
@@ -14,18 +8,11 @@ type TableViewType = {
 };
 
 const TableView: React.FC<TableViewType> = ({ data, columns }) => {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    state,
-    setGlobalFilter,
-    prepareRow,
-  } = useTable({ columns, data });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
 
   return (
-    <div>
+    <>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -37,7 +24,7 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {rows.map((row) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -51,7 +38,7 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
           })}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
