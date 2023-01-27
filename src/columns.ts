@@ -3,17 +3,20 @@ import Searchbar from "./components/SearchBar";
 export const COLUMNS = [
   {
     Header: "Devices",
-    accessor: "show.devices",
+    accessor: "devices.id",
+    Cell: ({ cell: { value } }: any) => (value ? { value } : "-"),
     Filter: Searchbar,
   },
   {
     Header: "Product Line",
-    accessor: "show.productline",
+    accessor: "data.line.name",
+    Cell: ({ cell: { value } }: any) => (value ? { value } : "-"),
     Filter: Searchbar,
   },
   {
     Header: "Name",
-    accessor: "show.name",
+    accessor: "device.product.name",
+    Cell: ({ cell: { value } }: any) => (value ? { value } : "-"),
     Filter: Searchbar,
   },
 ];
