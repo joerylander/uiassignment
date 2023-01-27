@@ -19,7 +19,7 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
     setGlobalFilter,
     prepareRow,
   } = useTable({ columns, data });
-  console.log(data);
+  // console.log(data.devices);
 
   return (
     <div>
@@ -34,10 +34,11 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
+          {rows.map((row, i) => {
             prepareRow(row);
-            // console.log(row);
-
+            if (i === 1) {
+              console.log(row);
+            }
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => {

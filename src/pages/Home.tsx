@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { COLUMNS } from "../columns";
+import { COLUMNS } from "../components/TableView/columns";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
@@ -11,7 +11,7 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({ data, loaded }) => {
   const columns = useMemo(() => COLUMNS, []);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
