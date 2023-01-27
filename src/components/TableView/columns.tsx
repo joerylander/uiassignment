@@ -9,8 +9,6 @@ export const COLUMNS = [
     Cell: ({ cell: { value } }: CellProps<{}>) => {
       console.log(value.resolutions);
       const correctResolution = resolutionSelector("xs", value.resolutions);
-      console.log(correctResolution);
-
       const imageSrc = iconUrlGenerator(value.id, correctResolution);
       return <img src={imageSrc} />;
     },

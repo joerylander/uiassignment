@@ -5,9 +5,14 @@ import SearchIcon from "@mui/icons-material/Search";
 type SearchBarType = {
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+  filterInput: string;
 };
 
-const Searchbar: React.FC<SearchBarType> = ({ placeholder, onChange }) => {
+const Searchbar: React.FC<SearchBarType> = ({
+  placeholder,
+  onChange,
+  filterInput,
+}) => {
   return (
     <Box className="nav__searchbar">
       <IconButton onClick={(e: any) => console.log(e)}>
@@ -18,6 +23,7 @@ const Searchbar: React.FC<SearchBarType> = ({ placeholder, onChange }) => {
         className="nav__searchbar--input"
         placeholder={placeholder}
         onChange={onChange}
+        value={filterInput}
       />
     </Box>
   );

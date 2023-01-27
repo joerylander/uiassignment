@@ -8,8 +8,6 @@ type TableViewType = {
 };
 
 const TableView: React.FC<TableViewType> = ({ data, columns }) => {
-  // console.log(data);
-  // console.log(columns);
   const {
     getTableProps,
     getTableBodyProps,
@@ -19,7 +17,6 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
     setGlobalFilter,
     prepareRow,
   } = useTable({ columns, data });
-  // console.log(data.devices);
 
   return (
     <div>

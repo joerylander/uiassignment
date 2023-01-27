@@ -23,6 +23,5 @@ export const resolutionSelector = (
 
 export const iconUrlGenerator = (id: string, resolutions: number[]) => {
   const resString = resolutions.join("x");
-  console.log(resString);
   return `https://static.ui.com/fingerprint/ui/icons/${id}_${resString}.png`;
 };
