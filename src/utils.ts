@@ -1,5 +1,3 @@
-import { OtherHouses } from "@mui/icons-material";
-
 const resolutionsMap = {
   xs: 25,
   sm: 51,
