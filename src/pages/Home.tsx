@@ -4,8 +4,9 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
 import GridView from "../components/GridView";
-import { filterProducts } from "../utils";
+import { filterProducts, filterUniqueProductName } from "../utils";
 import "./home.css";
+import FilterDropDown from "../components/FilterDropDown";
 
 type HomeProps = {
   data: DataType;
@@ -20,7 +21,7 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
   const [filterInput, setFilterInput] = useState("");
 
   const searchedProducts = filterProducts(data.devices, filterInput);
-
+  filterUniqueProductName(data.devices);
   const renderView = () => {
     if (searchedProducts.length === 0) {
       return <p>The product you searched for does not exist!</p>;
@@ -44,6 +45,7 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
         filterInput={filterInput}
         setFilterInput={setFilterInput}
       />
+      <FilterDropDown data={data.devices} />
       <main className="main">{renderView()}</main>
     </>
   );

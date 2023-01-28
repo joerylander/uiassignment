@@ -14,7 +14,3 @@ th {
 td:first-child > img {
   margin-left: auto;
 }
-
-/* tr:nth-child(even) {
-  background-color: #dddddd;
-} */
