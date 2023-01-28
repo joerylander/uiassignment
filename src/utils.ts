@@ -33,23 +33,29 @@ export const filterProducts = (
 ): DeviceType[] => {
   const regEx = new RegExp(value, "gi");
 
-  const items = data.filter((item, i) => {
-    return (
-      (regEx.test(item.product.name) || regEx.test(item.line.name)) && item
-    );
-  });
   if (labelValue.length > 0) {
-    const filteredCheckBox = data.filter((item) =>
-      labelValue.includes(item.line.name)
-    );
-    return filteredCheckBox;
+    return filteredCheckBox(data, labelValue);
   }
 
-  return items;
+  return filteredSearch(data, regEx);
 };
 
 export const filterUniqueProductList = (data: DeviceType[]): Set<string> => {
   const lineNameArr = data.map((device: DeviceType) => device.line.name);
   const uniqueArr = new Set(lineNameArr);
   return uniqueArr;
+};
+
+const filteredCheckBox = (
+  data: DeviceType[],
+  labelValue: string[]
+): DeviceType[] => {
+  return data.filter((item) => labelValue.includes(item.line.name));
+};
+
+const filteredSearch = (data: DeviceType[], regEx: RegExp): DeviceType[] => {
+  return data.filter(
+    (item) =>
+      (regEx.test(item.product.name) || regEx.test(item.line.name)) && item
+  );
 };
