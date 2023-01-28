@@ -1,3 +1,5 @@
+import { OtherHouses } from "@mui/icons-material";
+
 const resolutionsMap = {
   xs: 25,
   sm: 51,
@@ -28,18 +30,27 @@ export const iconUrlGenerator = (id: string, resolutions: number[]): string => {
 
 export const filterProducts = (
   data: DeviceType[],
-  value: string
+  value: string,
+  labelValue: string[]
 ): DeviceType[] => {
   const regEx = new RegExp(value, "gi");
-  const items = data.filter((item) => {
+
+  const items = data.filter((item, i) => {
     return (
       (regEx.test(item.product.name) || regEx.test(item.line.name)) && item
     );
   });
+  if (labelValue.length > 0) {
+    const filteredCheckBox = data.filter((item) =>
+      labelValue.includes(item.line.name)
+    );
+    return filteredCheckBox;
+  }
+
   return items;
 };
 
-export const filterUniqueProductName = (data: DeviceType[]): Set<string> => {
+export const filterUniqueProductList = (data: DeviceType[]): Set<string> => {
   const lineNameArr = data.map((device: DeviceType) => device.line.name);
   const uniqueArr = new Set(lineNameArr);
   return uniqueArr;

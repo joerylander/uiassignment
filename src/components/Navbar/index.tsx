@@ -5,19 +5,25 @@ import Searchbar from "../SearchBar";
 import GridViewIcon from "@mui/icons-material/GridView";
 import { Button, IconButton } from "@mui/material";
 import { ViewType } from "../../pages/Home";
+import FilterDropDown from "../FilterDropDown";
 
 type NavbarType = {
-  columns: any;
+  columns: ColumnType[];
   setViewState: React.Dispatch<React.SetStateAction<ViewType>>;
   filterInput: string;
   setFilterInput: React.Dispatch<React.SetStateAction<string>>;
+  uniqueProductList: Set<string>;
+  setLabelValue: React.Dispatch<React.SetStateAction<string[]>>;
+  labelValue: string[];
 };
 
 const Navbar: React.FC<NavbarType> = ({
-  columns,
   setViewState,
   filterInput,
   setFilterInput,
+  uniqueProductList,
+  setLabelValue,
+  labelValue,
 }) => {
   const [searchInput, setSearchInput] = useState("");
 
@@ -46,6 +52,11 @@ const Navbar: React.FC<NavbarType> = ({
         <Button variant="text" style={{ color: "#606060", fontWeight: "500" }}>
           {/* Expand filter when clicked on that lists checkbox with names of products */}
           Filter
+          <FilterDropDown
+            data={Array.from(uniqueProductList)}
+            setLabelValue={setLabelValue}
+            labelValue={labelValue}
+          />
         </Button>
       </section>
     </nav>

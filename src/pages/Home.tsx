@@ -4,28 +4,31 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
 import GridView from "../components/GridView";
-import { filterProducts, filterUniqueProductName } from "../utils";
+import { filterProducts, filterUniqueProductList } from "../utils";
 import "./home.css";
-import FilterDropDown from "../components/FilterDropDown";
 
 type HomeProps = {
   data: DataType;
-  loaded: boolean;
 };
 
 export type ViewType = "list" | "grid";
 
-const Home: React.FC<HomeProps> = ({ data, loaded }) => {
+const Home: React.FC<HomeProps> = ({ data }) => {
   const columns = useMemo(() => COLUMNS, []);
   const [viewState, setViewState] = useState<ViewType>("list");
   const [filterInput, setFilterInput] = useState("");
+  const [labelValue, setLabelValue] = useState<string[]>([]);
 
-  const searchedProducts = filterProducts(data.devices, filterInput);
-  filterUniqueProductName(data.devices);
+  const searchedProducts = filterProducts(
+    data.devices,
+    filterInput,
+    labelValue
+  );
   const renderView = () => {
     if (searchedProducts.length === 0) {
       return <p>The product you searched for does not exist!</p>;
     }
+
     switch (viewState) {
       case "list":
         return <TableView data={searchedProducts} columns={columns} />;
@@ -36,6 +39,8 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
     }
   };
 
+  const uniqueProductList = filterUniqueProductList(data.devices);
+
   return (
     <>
       <Header />
@@ -44,8 +49,11 @@ const Home: React.FC<HomeProps> = ({ data, loaded }) => {
         setViewState={setViewState}
         filterInput={filterInput}
         setFilterInput={setFilterInput}
+        uniqueProductList={uniqueProductList}
+        labelValue={labelValue}
+        setLabelValue={setLabelValue}
       />
-      <FilterDropDown data={data.devices} />
+
       <main className="main">{renderView()}</main>
     </>
   );

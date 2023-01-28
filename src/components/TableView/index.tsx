@@ -1,15 +1,16 @@
 import React from "react";
 import { useTable } from "react-table";
 import "./table.css";
+import { Column, TableOptions } from "react-table";
 
 type TableViewType = {
   data: DeviceType[];
-  columns: any;
+  columns: Column<DeviceType>[] | ColumnType[] | any;
 };
 
 const TableView: React.FC<TableViewType> = ({ data, columns }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    useTable<DeviceType>({ columns, data });
 
   return (
     <>

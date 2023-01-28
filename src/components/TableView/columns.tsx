@@ -1,7 +1,7 @@
 import { CellProps } from "react-table";
 import { iconUrlGenerator, resolutionSelector } from "../../utils";
 
-export const COLUMNS = [
+export const COLUMNS: ColumnType[] = [
   {
     Header: "Devices",
     accessor: "icon",

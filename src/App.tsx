@@ -19,7 +19,7 @@ function App() {
     })();
   }, []);
 
-  return <>{loaded && <Home data={data} loaded={loaded} />}</>;
+  return <>{loaded && <Home data={data} />}</>;
 }
 
 export default App;

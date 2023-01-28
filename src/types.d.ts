@@ -45,4 +45,10 @@ declare global {
   interface IdType {
     id: string;
   }
+
+  interface ColumnType {
+    Header: string;
+    accessor: string;
+    Cell?: ({ cell: { value } }: CellProps<{}>) => JSX.Element | undefined;
+  }
 }
