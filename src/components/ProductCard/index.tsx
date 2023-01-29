@@ -1,3 +1,4 @@
+import { Card } from "@mui/material";
 import React from "react";
 import { iconUrlGenerator, resolutionSelector } from "../../utils";
 
@@ -14,11 +15,11 @@ const ProductCard: React.FC<ProductCardType> = ({ device }) => {
   };
 
   return (
-    <div>
-      <img src={GridImg(device.icon)} />
+    <Card>
+      <img src={GridImg(device.icon)} alt={device.product.abbrev || ""} />
       <h3 className="">{device.product.name}</h3>
       <h4 className="">{device.line.name}</h4>
-    </div>
+    </Card>
   );
 };
 

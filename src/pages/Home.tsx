@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { COLUMNS } from "../components/TableView/columns";
+import { ColumnData } from "../components/TableView/columns";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import TableView from "../components/TableView";
@@ -14,7 +14,6 @@ type HomeProps = {
 export type ViewType = "list" | "grid";
 
 const Home: React.FC<HomeProps> = ({ data }) => {
-  const columns = useMemo(() => COLUMNS, []);
   const [viewState, setViewState] = useState<ViewType>("list");
   const [filterInput, setFilterInput] = useState("");
   const [labelValue, setLabelValue] = useState<string[]>([]);
@@ -23,6 +22,11 @@ const Home: React.FC<HomeProps> = ({ data }) => {
     data.devices,
     filterInput,
     labelValue
+  );
+
+  const columns = useMemo(
+    () => ColumnData(searchedProducts),
+    [searchedProducts]
   );
   const renderView = () => {
     if (searchedProducts.length === 0) {

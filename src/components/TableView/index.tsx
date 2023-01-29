@@ -1,7 +1,7 @@
 import React from "react";
 import { useTable } from "react-table";
+import { Column } from "react-table";
 import "./table.css";
-import { Column, TableOptions } from "react-table";
 
 type TableViewType = {
   data: DeviceType[];

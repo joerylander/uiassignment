@@ -8,15 +8,18 @@ type GridViewType = {
 
 const GridView: React.FC<GridViewType> = ({ data }) => {
   return (
-    <Grid container spacing={1}>
-      {data.map((device) => {
-        return (
-          <Grid>
-            <ProductCard device={device} />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <>
+      <h2>{data.length} devices</h2>
+      <Grid container spacing={1}>
+        {data.map((device) => {
+          return (
+            <Grid key={device.id} item xs={12} md={4} lg={12 / 5}>
+              <ProductCard device={device} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </>
   );
 };
 
