@@ -19,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
   const [labelValue, setLabelValue] = useState<string[]>([]);
 
   const searchedProducts = filterProducts(
-    data.devices,
+    data?.devices,
     filterInput,
     labelValue
   );

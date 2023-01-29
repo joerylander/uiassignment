@@ -4,12 +4,12 @@ import { iconUrlGenerator, resolutionSelector } from "../../utils";
 export const ColumnData = (data: DeviceType[]): ColumnType[] => {
   const COLUMNS: ColumnType[] = [
     {
-      Header: `${data.length} devices`,
+      Header: `${data?.length} devices`,
       accessor: "icon",
       Cell: ({ cell: { value } }: CellProps<{}>) => {
         const correctResolution = resolutionSelector("xs", value.resolutions);
         const imageSrc = iconUrlGenerator(value.id, correctResolution);
-        return <img src={imageSrc} alt={value.product.abbrev || ""} />;
+        return <img src={imageSrc} alt={value?.product?.abbrev ?? ""} />;
       },
     },
     {
