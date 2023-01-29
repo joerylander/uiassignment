@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import { DEFAULT_VALUES } from "./constants";
 import Home from "./pages/Home/Home";
-import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Product from "./pages/Product/product";
 import "./styles.css";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         {loaded && (
           <Route
             path="/product/:productId"
-            element={loaded && <SingleProduct data={data.devices} />}
+            element={loaded && <Product data={data.devices} />}
           />
         )}
         {!loaded && (

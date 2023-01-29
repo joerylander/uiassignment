@@ -2,7 +2,7 @@ import { Card } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { iconUrlGenerator, resolutionSelector } from "../../utils";
-import "./productcard.css";
+import "./gridcard.css";
 
 type ProductCardType = {
   device: DeviceType;
@@ -22,8 +22,8 @@ const ProductCard: React.FC<ProductCardType> = ({ device }) => {
           <img src={GridImg(device.icon)} alt={device.product.abbrev ?? ""} />
         </Link>
       </div>
-      <h3 className="">{device.product.name}</h3>
-      <h4 className="">{device.line.name}</h4>
+      <h3 className="card__product-name">{device.product.name}</h3>
+      <h4 className="card__line-name">{device.line.name}</h4>
     </Card>
   );
 };

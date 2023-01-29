@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import ProductCard from "../ProductCard";
+import GridCard from "../GridCard";
 
 type GridViewType = {
   data: DeviceType[];
@@ -14,7 +14,7 @@ const GridView: React.FC<GridViewType> = ({ data }) => {
         {data.map((device) => {
           return (
             <Grid key={device.id} item xs={12} md={4} lg={12 / 5}>
-              <ProductCard device={device} />
+              <GridCard device={device} />
             </Grid>
           );
         })}

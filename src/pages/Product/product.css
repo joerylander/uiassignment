@@ -10,3 +10,10 @@
 .product__title {
   align-self: center;
 }
+
+.product__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

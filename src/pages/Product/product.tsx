@@ -1,5 +1,5 @@
 import React from "react";
-import "./singleproduct.css";
+import "./product.css";
 import { useNavigate, useParams } from "react-router-dom";
 import SingleProductCard from "../../components/SingleProductCard";
 
@@ -21,7 +21,7 @@ const SingleProduct: React.FC<SingleProductType> = ({ data }) => {
         <h3 className="product__title">{device?.product.name}</h3>
       </section>
       <main className="product__container">
-        <SingleProductCard device={device} />
+        {device && <SingleProductCard device={device} />}
       </main>
     </>
   );
