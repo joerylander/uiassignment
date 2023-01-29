@@ -1,0 +1,12 @@
+.product__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__home-btn {
+  align-self: flex-start;
+}
+
+.product__title {
+  align-self: center;
+}

@@ -4,7 +4,7 @@ import { BsFillGridFill, BsGrid, BsListTask, BsListUl } from "react-icons/bs";
 import Searchbar from "../SearchBar";
 import GridViewIcon from "@mui/icons-material/GridView";
 import { Button, IconButton } from "@mui/material";
-import { ViewType } from "../../pages/Home";
+import { ViewType } from "../../pages/Home/Home";
 import FilterDropDown from "../FilterDropDown";
 
 type NavbarType = {

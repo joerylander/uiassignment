@@ -1,10 +1,9 @@
 import React, { useMemo, useState } from "react";
-import { ColumnData } from "../components/TableView/columns";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import TableView from "../components/TableView";
-import GridView from "../components/GridView";
-import { filterProducts, filterUniqueProductList } from "../utils";
+import { ColumnData } from "../../components/TableView/columns";
+import Navbar from "../../components/Navbar";
+import TableView from "../../components/TableView";
+import GridView from "../../components/GridView";
+import { filterProducts, filterUniqueProductList } from "../../utils";
 import "./home.css";
 
 type HomeProps = {
@@ -47,7 +46,6 @@ const Home: React.FC<HomeProps> = ({ data }) => {
 
   return (
     <>
-      <Header />
       <Navbar
         columns={columns}
         setViewState={setViewState}

@@ -1,0 +1,8 @@
+.card {
+}
+
+.card-img__wrapper {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}

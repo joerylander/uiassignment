@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 import { DEFAULT_VALUES } from "./constants";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import "./styles.css";
 
 function App() {
@@ -19,7 +22,30 @@ function App() {
     })();
   }, []);
 
-  return <>{loaded && <Home data={data} />}</>;
+  return (
+    <>
+      <Header />
+      <Routes>
+        {loaded && <Route path="/" element={<Home data={data} />} />}
+        {loaded && (
+          <Route
+            path="/product/:productId"
+            element={loaded && <SingleProduct data={data.devices} />}
+          />
+        )}
+        {!loaded && (
+          <Route
+            path="*"
+            element={
+              <>
+                <h1>ERROR MESSAGE COMPONENT IMPLEMENTATION HERE</h1>
+              </>
+            }
+          />
+        )}
+      </Routes>
+    </>
+  );
 }
 
 export default App;
