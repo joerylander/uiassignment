@@ -2,6 +2,7 @@ export const DEFAULT_VALUES = {
   version: "version_number",
   devices: [
     {
+      sysid: "",
       sysids: [""],
       icon: {
         id: "",
@@ -26,7 +27,7 @@ export const DEFAULT_VALUES = {
         name: "",
       },
       shortnames: [""],
-      triplets: [""],
+      triplets: [{}],
       id: "",
     },
   ],

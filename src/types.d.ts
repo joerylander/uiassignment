@@ -7,6 +7,7 @@ declare global {
   }
 
   interface DeviceType extends IdType {
+    sysid: string;
     sysids: string[];
     icon: IconType;
     line: LineType;
@@ -14,7 +15,8 @@ declare global {
     uisp: UispType;
     product: ProductType;
     shortnames: string[];
-    triplets: string[];
+    triplets: object[];
+    unifi?: UnifiType;
   }
 
   interface IconType extends IdType {
@@ -51,4 +53,40 @@ declare global {
     accessor: string;
     Cell?: ({ cell: { value } }: CellProps<{}>) => JSX.Element | undefined;
   }
+
+  interface UnifiType {
+    adoptability: string;
+    network: {
+      bleServices: BleServicesType[];
+      chipset: string;
+      deviceCapabilities: string[];
+      ethernetMaxSpeedMegabitsPerSecond: number;
+      features: FeaturesType;
+      hybrid: string;
+      minimumFirmwareRequired: string;
+      numberOfPorts: number;
+      ports: PortsType;
+      radios: RadiosType;
+      systemIdHexadecimal: string;
+      type: string;
+    };
+  }
+
+  interface BleServicesType {
+    configured: string;
+    default: string;
+  }
+
+  interface FeaturesType {
+    atfDisabled: boolean;
+    ax: boolean;
+    bandsteer: boolean;
+    gen: number;
+  }
+
+  interface PortsType {
+    standard: number;
+  }
+
+  interface RadiosType {}
 }
