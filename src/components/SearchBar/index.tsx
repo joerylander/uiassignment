@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, IconButton, Input } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import "./searchbar.css";
 
 type SearchBarType = {
   placeholder: string;

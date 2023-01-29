@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import GridCard from "../GridCard";
+import "./gridview.css";
 
 type GridViewType = {
   data: DeviceType[];
