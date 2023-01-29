@@ -33,7 +33,7 @@ const Home: React.FC<HomeProps> = ({ data }) => {
       case "list":
         return <TableView data={searchedProducts} columns={columns} />;
       case "grid":
-        return <GridView />;
+        return <GridView data={searchedProducts} />;
       default:
         return <></>;
     }
