@@ -1,5 +1,5 @@
 import { CellProps } from "react-table";
-import { iconUrlGenerator, resolutionSelector } from "../../utils";
+import { iconUrlGenerator, resolutionSelector } from "../../utils/imgUitls";
 
 export const ColumnData = (data: DeviceType[]): ColumnType[] => {
   const COLUMNS: ColumnType[] = [

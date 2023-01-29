@@ -1,14 +1,15 @@
 .product__nav {
   display: flex;
-  flex-direction: column;
 }
 
 .product__home-btn {
-  align-self: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+  height: 5rem;
 }
 
 .product__title {
-  align-self: center;
+  margin: auto;
 }
 
 .product__container {

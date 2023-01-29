@@ -1,5 +1,5 @@
 import React from "react";
-import { iconUrlGenerator, resolutionSelector } from "../../utils";
+import { iconUrlGenerator, resolutionSelector } from "../../utils/imgUitls";
 import "./singleproductcard.css";
 
 type SingleProductType = {
@@ -69,7 +69,7 @@ const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
         <div className="product__details">
           <p className="product__detail">Number of ports</p>
           <p className="product__detail">
-            {device?.unifi?.network.numberOfPorts}
+            {device?.unifi?.network.numberOfPorts || 0}
           </p>
         </div>
       </div>

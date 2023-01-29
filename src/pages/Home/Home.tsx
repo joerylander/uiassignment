@@ -3,7 +3,10 @@ import { ColumnData } from "../../components/TableView/columns";
 import Navbar from "../../components/Navbar";
 import TableView from "../../components/TableView";
 import GridView from "../../components/GridView";
-import { filterProducts, filterUniqueProductList } from "../../utils";
+import {
+  filterProducts,
+  filterUniqueProductList,
+} from "../../utils/filterUtils";
 import "./home.css";
 
 type HomeProps = {
@@ -32,14 +35,15 @@ const Home: React.FC<HomeProps> = ({ data }) => {
       return <p>The product you searched for does not exist!</p>;
     }
 
-    switch (viewState) {
-      case "list":
-        return <TableView data={searchedProducts} columns={columns} />;
-      case "grid":
-        return <GridView data={searchedProducts} />;
-      default:
-        return <></>;
+    if (viewState === "list") {
+      return <TableView data={searchedProducts} columns={columns} />;
     }
+
+    if (viewState === "grid") {
+      return <GridView data={searchedProducts} />;
+    }
+
+    return <></>;
   };
 
   const uniqueProductList = filterUniqueProductList(data.devices);

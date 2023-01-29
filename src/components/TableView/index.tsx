@@ -1,6 +1,6 @@
 import React from "react";
-import { useTable } from "react-table";
-import { Column } from "react-table";
+import { useTable, Column, Row } from "react-table";
+import { useNavigate } from "react-router-dom";
 import "./table.css";
 
 type TableViewType = {
@@ -9,8 +9,13 @@ type TableViewType = {
 };
 
 const TableView: React.FC<TableViewType> = ({ data, columns }) => {
+  const navigate = useNavigate();
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable<DeviceType>({ columns, data });
+
+  const handleClick = (row: Row<DeviceType>) => {
+    navigate(`/product/${row.original.id}`);
+  };
 
   return (
     <>
@@ -28,7 +33,7 @@ const TableView: React.FC<TableViewType> = ({ data, columns }) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} onClick={() => handleClick(row)}>
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
