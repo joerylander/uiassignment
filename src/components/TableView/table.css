@@ -4,6 +4,10 @@ table {
   width: 100%;
 }
 
+tr {
+  cursor: pointer;
+}
+
 td,
 th {
   border-bottom: 1px solid #dddddd;
