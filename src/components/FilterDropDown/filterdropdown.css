@@ -1,3 +1,19 @@
+.filter {
+  padding: 2rem;
+}
+
+.filter__title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--custom-text-black-fade-primary);
+}
+
 .filter__checkbox {
   display: flex;
+  color: var(--custom-text-black-fade-secondary);
+  font-family: "Lato";
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 400;
 }

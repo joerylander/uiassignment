@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Checkbox, FormControlLabel, MenuItem, Select } from "@mui/material";
 import "./filterdropdown.css";
 
@@ -13,17 +13,11 @@ const FilterDropDown: React.FC<FilterDropDownType> = ({
   labelValue,
   setLabelValue,
 }) => {
-  const t = data.map((label) => {
-    if (label === "airMAX") return label;
-  });
-
   const boolArr = new Array(data.length).fill(false);
 
   const [isBool, setIsBool] = useState<boolean[]>(boolArr);
   const toggleCheckboxValue = (index: number, label: string) => {
-    const boolVal = isBool.map((v: boolean, i: number) =>
-      i === index ? !v : v
-    );
+    const boolVal = isBool.map((bool, i) => (i === index ? !bool : bool));
     setIsBool(boolVal);
 
     if (data[index] === label && isBool[index] === false) {
@@ -38,26 +32,25 @@ const FilterDropDown: React.FC<FilterDropDownType> = ({
   };
 
   return (
-    <div>
-      <Select>
-        {Array.from(data).map((label, i: number) => {
-          return (
-            <MenuItem key={i}>
-              <FormControlLabel
-                label={label}
-                control={
-                  <Checkbox
-                    checked={isBool[i]}
-                    onChange={() => toggleCheckboxValue(i, label)}
-                  />
-                }
-                className="filter__checkbox"
-              />
-            </MenuItem>
-          );
-        })}
-      </Select>
-    </div>
+    <Select>
+      <h3 className="filter__title">Product line</h3>
+      {Array.from(data).map((label, i) => {
+        return (
+          <MenuItem key={i}>
+            <FormControlLabel
+              label={label}
+              control={
+                <Checkbox
+                  checked={isBool[i]}
+                  onChange={() => toggleCheckboxValue(i, label)}
+                />
+              }
+              className="filter__checkbox"
+            />
+          </MenuItem>
+        );
+      })}
+    </Select>
   );
 };
 
