@@ -25,10 +25,24 @@ const Navbar: React.FC<NavbarType> = ({
   setLabelValue,
   labelValue,
 }) => {
-  const [searchInput, setSearchInput] = useState("");
+  const [btnToggle, setBtnToggle] = useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterInput(e.target.value);
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const btnName = e.currentTarget.name;
+    if (btnName === "list-btn") {
+      console.log("list btn targeted");
+      setViewState("list");
+      setBtnToggle(true);
+    }
+    if (btnName === "grid-btn") {
+      console.log("grid btn targeted");
+      setViewState("grid");
+      setBtnToggle(false);
+    }
   };
 
   return (
@@ -37,17 +51,24 @@ const Navbar: React.FC<NavbarType> = ({
         placeholder="Search..."
         onChange={handleChange}
         filterInput={filterInput}
+        setFilterInput={setFilterInput}
       />
 
       <section className="nav__container">
-        <IconButton onClick={() => setViewState("list")}>
-          <BsListTask style={{ width: "3rem", height: "2.5rem" }} />
-          {/* <BsListUl style={{ width: "2.5rem", height: "2.5rem" }} /> */}
+        <IconButton name="list-btn" onClick={(e) => handleClick(e)}>
+          {!btnToggle && (
+            <BsListTask style={{ width: "3rem", height: "2.5rem" }} />
+          )}
+          {btnToggle && (
+            <BsListUl style={{ width: "2.5rem", height: "2.5rem" }} />
+          )}
         </IconButton>
 
-        {/* <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} /> */}
-        <IconButton onClick={() => setViewState("grid")}>
-          <BsGrid style={{ width: "2rem", height: "2rem" }} />
+        <IconButton name="grid-btn" onClick={(e) => handleClick(e)}>
+          {!btnToggle && (
+            <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} />
+          )}
+          {btnToggle && <BsGrid style={{ width: "2rem", height: "2rem" }} />}
         </IconButton>
         <Button variant="text" style={{ color: "#606060", fontWeight: "500" }}>
           {/* Expand filter when clicked on that lists checkbox with names of products */}

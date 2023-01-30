@@ -8,12 +8,14 @@ type SearchBarType = {
   placeholder: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   filterInput: string;
+  setFilterInput: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Searchbar: React.FC<SearchBarType> = ({
   placeholder,
   onChange,
   filterInput,
+  setFilterInput,
 }) => {
   return (
     <section className="nav__searchbar">
@@ -28,7 +30,7 @@ const Searchbar: React.FC<SearchBarType> = ({
         value={filterInput}
       />
 
-      <IconButton onClick={(e: any) => console.log(e)}>
+      <IconButton onClick={(e: any) => setFilterInput("")}>
         <CloseIcon />
       </IconButton>
     </section>
