@@ -6,6 +6,7 @@
   --custom-text-black-fade-tertiary: rgba(0, 0, 0, 0.45);
   --custom-border-gray-primary: #ededf0;
   --custom-text-white-primary: #bdbdbd;
+  --custom-blue-primary: #006fff;
 }
 
 /* Box sizing rules */
@@ -47,7 +48,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 /* A elements that don't have a class get default styles */
