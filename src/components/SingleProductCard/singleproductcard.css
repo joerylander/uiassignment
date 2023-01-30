@@ -11,5 +11,12 @@
 .product__details {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--custom-border-gray-primary);
+}
+
+.product__detail {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--custom-text-black-fade-secondary);
 }
