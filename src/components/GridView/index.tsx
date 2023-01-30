@@ -10,7 +10,7 @@ type GridViewType = {
 const GridView: React.FC<GridViewType> = ({ data }) => {
   return (
     <>
-      <h2>{data.length} devices</h2>
+      <h2 className="gridview__title">{data.length} devices</h2>
       <Grid container spacing={3}>
         {data.map((device) => {
           return (

@@ -1,0 +1,7 @@
+.gridview__title {
+  color: var(--custom-text-white-primary);
+  line-height: 2.4rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}

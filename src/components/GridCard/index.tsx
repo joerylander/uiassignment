@@ -22,8 +22,10 @@ const ProductCard: React.FC<ProductCardType> = ({ device }) => {
           <img src={GridImg(device.icon)} alt={device.product.abbrev ?? ""} />
         </Link>
       </div>
-      <h3 className="card__product-name">{device.product.name}</h3>
-      <h4 className="card__line-name">{device.line.name}</h4>
+      <div className="card__name-wrapper">
+        <h3 className="card__product-name">{device.product.name}</h3>
+        <h4 className="card__line-name">{device.line.name}</h4>
+      </div>
     </Card>
   );
 };
