@@ -1,12 +1,11 @@
 :root {
-  --custom-gray-bg-light: #f0f0f6;
-  --custom-white: #fff;
-  --custom-gray-text-dark: #606060;
-  --custom-gray-text-light: #dadada;
-  --custom-gray-text-light-2: #c6c6c6;
-  --custom-gray-caption: #595959;
-  --custom-gray-text: #d5d5d5;
-  --custom-black: #000;
+  --custom-bg-gray-primary: #f6f6f8;
+  --custom-text-gray-primary: #838691;
+  --custom-text-black-fade-primary: rgba(0, 0, 0, 0.85);
+  --custom-text-black-fade-secondary: rgba(0, 0, 0, 0.65);
+  --custom-text-black-fade-tertiary: rgba(0, 0, 0, 0.45);
+  --custom-border-gray-primary: #ededf0;
+  --custom-text-white-primary: #bdbdbd;
 }
 
 /* Box sizing rules */
@@ -48,7 +47,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
 }
 
 /* A elements that don't have a class get default styles */

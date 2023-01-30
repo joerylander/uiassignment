@@ -1,7 +1,6 @@
 .header {
-  background-color: red;
-  width: 100vw;
   display: flex;
+  background-color: var(--custom-bg-gray-primary);
 }
 
 .header__logo {
@@ -23,16 +22,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--custom-gray-bg-light);
 }
 
 .header__title {
   padding: 0 2rem;
-  color: var(--custom-gray-text-dark);
-  font-size: 2.2rem;
+  color: var(--custom-text-gray-primary);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 2.8rem;
 }
 
 .header__author {
   padding: 0 3rem;
-  color: var(--custom-gray-text-dark);
+  color: var(--custom-text-black-fade-secondary);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 }
