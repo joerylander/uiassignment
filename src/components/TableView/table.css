@@ -1,5 +1,4 @@
 table {
-  font-family: "Poppins", sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -8,13 +7,43 @@ tr {
   cursor: pointer;
 }
 
+th:nth-child(2) {
+  padding-left: 3rem;
+}
+
+td:nth-child(2) {
+  padding-left: 3rem;
+}
+
 td,
 th {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--custom-border-gray-primary);
   text-align: left;
   padding: 8px;
+}
+td {
+  color: var(--custom-text-black-fade-secondary);
+  line-height: 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 td:first-child > img {
   margin-left: auto;
+}
+
+th:first-child {
+  color: var(--custom-text-white-primary);
+  font-weight: 400;
+  text-align: right;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+}
+
+th {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--custom-text-black-fade-secondary);
+  line-height: 2.4rem;
+  text-transform: uppercase;
 }
