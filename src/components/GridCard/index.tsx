@@ -16,17 +16,17 @@ const ProductCard: React.FC<ProductCardType> = ({ device }) => {
   };
 
   return (
-    <Card className="card">
-      <div className="card-img__wrapper">
-        <Link to={`product/${device.id}`}>
+    <Link to={`product/${device.id}`} style={{ textDecoration: "none" }}>
+      <Card className="card">
+        <div className="card-img__wrapper">
           <img src={GridImg(device.icon)} alt={device.product.abbrev ?? ""} />
-        </Link>
-      </div>
-      <div className="card__name-wrapper">
-        <h3 className="card__product-name">{device.product.name}</h3>
-        <h4 className="card__line-name">{device.line.name}</h4>
-      </div>
-    </Card>
+        </div>
+        <div className="card__name-wrapper">
+          <h3 className="card__product-name">{device.product.name}</h3>
+          <h4 className="card__line-name">{device.line.name}</h4>
+        </div>
+      </Card>
+    </Link>
   );
 };
 

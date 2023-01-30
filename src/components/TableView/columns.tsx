@@ -2,7 +2,7 @@ import { CellProps } from "react-table";
 import { iconUrlGenerator, resolutionSelector } from "../../utils/imgUitls";
 
 export const ColumnData = (data: DeviceType[]): ColumnType[] => {
-  const COLUMNS: ColumnType[] = [
+  const COLUMNS = [
     {
       Header: `${data?.length} devices`,
       accessor: "icon",

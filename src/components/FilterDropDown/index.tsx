@@ -32,19 +32,18 @@ const FilterDropDown: React.FC<FilterDropDownType> = ({
   };
 
   return (
-    <Select>
+    <Select
+      className="filter__wrapper"
+      sx={{ background: "red", width: "3.4rem" }}
+      inputProps={{ IconComponent: () => null }}
+    >
       <h3 className="filter__title">Product line</h3>
       {Array.from(data).map((label, i) => {
         return (
-          <MenuItem key={i}>
+          <MenuItem key={i} onClick={() => toggleCheckboxValue(i, label)}>
             <FormControlLabel
               label={label}
-              control={
-                <Checkbox
-                  checked={isBool[i]}
-                  onChange={() => toggleCheckboxValue(i, label)}
-                />
-              }
+              control={<Checkbox checked={isBool[i]} />}
               className="filter__checkbox"
             />
           </MenuItem>

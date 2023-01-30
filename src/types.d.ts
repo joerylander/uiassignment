@@ -55,20 +55,20 @@ declare global {
   }
 
   interface UnifiType {
-    adoptability: string;
+    adoptability?: string;
     network: {
-      bleServices: BleServicesType[];
-      chipset: string;
-      deviceCapabilities: string[];
-      ethernetMaxSpeedMegabitsPerSecond: number;
-      features: FeaturesType;
-      hybrid: string;
-      minimumFirmwareRequired: string;
-      numberOfPorts: number;
-      ports: PortsType;
-      radios: RadiosType;
-      systemIdHexadecimal: string;
-      type: string;
+      bleServices?: BleServicesType[];
+      chipset?: string;
+      deviceCapabilities?: string[];
+      ethernetMaxSpeedMegabitsPerSecond?: number;
+      features?: FeaturesType;
+      hybrid?: string;
+      minimumFirmwareRequired?: string;
+      numberOfPorts?: number;
+      ports?: PortsType;
+      radios?: RadiosType;
+      systemIdHexadecimal?: string;
+      type?: string;
     };
   }
 
@@ -88,5 +88,16 @@ declare global {
     standard: number;
   }
 
-  interface RadiosType {}
+  interface RadiosType {
+    na: {
+      gain: number;
+      maxPower: number;
+      maxSpeedMegabitsPerSecond: number;
+    };
+    ng: {
+      gain: number;
+      maxPower: number;
+      maxSpeedMegabitsPerSecond: number;
+    };
+  }
 }

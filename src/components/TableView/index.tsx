@@ -6,12 +6,14 @@ import "./table.css";
 type TableViewType = {
   data: DeviceType[];
   columns: Column<DeviceType>[] | ColumnType[] | any;
+  // Try fix columns type to what useTable columns type is. Avoid any if possible
+  // readonly Column<DeviceType>[]
 };
 
 const TableView: React.FC<TableViewType> = ({ data, columns }) => {
   const navigate = useNavigate();
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable<DeviceType>({ columns, data });
+    useTable({ columns, data });
 
   const handleClick = (row: Row<DeviceType>) => {
     navigate(`/product/${row.original.id}`);

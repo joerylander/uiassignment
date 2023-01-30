@@ -3,7 +3,7 @@ import { iconUrlGenerator, resolutionSelector } from "../../utils/imgUitls";
 import "./singleproductcard.css";
 
 type SingleProductType = {
-  device: DeviceType;
+  device: DeviceType | undefined;
 };
 
 const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
@@ -18,7 +18,7 @@ const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
     <article className="product">
       <div className="product__img-wrapper">
         <img
-          src={ProductImg(device.icon)}
+          src={ProductImg(device!.icon)}
           alt={device?.product.abbrev}
           className="product__img"
         />
@@ -26,50 +26,48 @@ const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
       <div className="product__details-wrapper">
         <div className="product__details">
           <p className="product__detail">Product Line</p>
-          <p className="product__detail">{device?.line.name}</p>
+          <p className="product__detail">{device?.line?.name || "N/A"}</p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">ID</p>
-          <p className="product__detail">{device?.line.id}</p>
+          <p className="product__detail">{device?.line?.id || "N/A"}</p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">Name</p>
-          <p className="product__detail">{device?.product.name}</p>
+          <p className="product__detail">{device?.product?.name || "N/A"}</p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">Short name</p>
-          {device?.shortnames.map((shortName, i) => (
-            <p key={i} className="product__detail">
-              {shortName}
-            </p>
-          ))}
+
+          <p className="product__detail">{device?.product?.abbrev || "N/A"}</p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">Max power</p>
-          <p>Need to fix prop deets</p>
           <p className="product__detail">
-            {device?.unifi?.network.hybrid} watt
+            {device?.unifi?.network?.radios?.na?.maxPower
+              ? device?.unifi?.network?.radios?.na?.maxPower + "watt"
+              : "N/A"}
           </p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">Speed</p>
-          <p>
-            Need to fix prop deets, not sure if this speed to display or whatnot
-          </p>
           <p className="product__detail">
-            {device?.unifi?.network.ethernetMaxSpeedMegabitsPerSecond} Mbps
+            {device?.unifi?.network?.ethernetMaxSpeedMegabitsPerSecond
+              ? device?.unifi?.network?.ethernetMaxSpeedMegabitsPerSecond +
+                "Mpbs"
+              : "N/A"}
           </p>
         </div>
 
         <div className="product__details">
           <p className="product__detail">Number of ports</p>
           <p className="product__detail">
-            {device?.unifi?.network.numberOfPorts || 0}
+            {device?.unifi?.network?.numberOfPorts ?? "N/A"}
           </p>
         </div>
       </div>
