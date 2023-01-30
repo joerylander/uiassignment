@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { BsFillGridFill, BsGrid, BsListTask, BsListUl } from "react-icons/bs";
 import Searchbar from "../SearchBar";
-import GridViewIcon from "@mui/icons-material/GridView";
 import { Button, IconButton } from "@mui/material";
 import { ViewType } from "../../pages/Home/Home";
 import FilterDropDown from "../FilterDropDown";
@@ -56,19 +55,13 @@ const Navbar: React.FC<NavbarType> = ({
 
       <section className="nav__container">
         <IconButton name="list-btn" onClick={(e) => handleClick(e)}>
-          {!btnToggle && (
-            <BsListTask style={{ width: "3rem", height: "2.5rem" }} />
-          )}
-          {btnToggle && (
-            <BsListUl style={{ width: "2.5rem", height: "2.5rem" }} />
-          )}
+          {!btnToggle && <BsListTask size={22} />}
+          {btnToggle && <BsListUl size={22} />}
         </IconButton>
 
         <IconButton name="grid-btn" onClick={(e) => handleClick(e)}>
-          {!btnToggle && (
-            <BsFillGridFill style={{ width: "2.5rem", height: "2.5rem" }} />
-          )}
-          {btnToggle && <BsGrid style={{ width: "2rem", height: "2rem" }} />}
+          {!btnToggle && <BsFillGridFill size={18} />}
+          {btnToggle && <BsGrid size={18} />}
         </IconButton>
         <Button variant="text" style={{ color: "#606060", fontWeight: "500" }}>
           {/* Expand filter when clicked on that lists checkbox with names of products */}
