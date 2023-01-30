@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, IconButton, Input } from "@mui/material";
+import React, { useRef } from "react";
+import { IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import "./searchbar.css";
@@ -17,9 +17,11 @@ const Searchbar: React.FC<SearchBarType> = ({
   filterInput,
   setFilterInput,
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <section className="nav__searchbar">
-      <IconButton onClick={(e: any) => console.log(e)}>
+      <IconButton onClick={() => inputRef?.current?.focus()}>
         <SearchIcon />
       </IconButton>
 
@@ -28,9 +30,10 @@ const Searchbar: React.FC<SearchBarType> = ({
         placeholder={placeholder}
         onChange={onChange}
         value={filterInput}
+        ref={inputRef}
       />
 
-      <IconButton onClick={(e: any) => setFilterInput("")}>
+      <IconButton onClick={() => setFilterInput("")}>
         <CloseIcon />
       </IconButton>
     </section>

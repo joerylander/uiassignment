@@ -33,16 +33,6 @@ function App() {
             element={loaded && <Product data={data.devices} />}
           />
         )}
-        {!loaded && (
-          <Route
-            path="*"
-            element={
-              <>
-                <h1>ERROR MESSAGE COMPONENT IMPLEMENTATION HERE</h1>
-              </>
-            }
-          />
-        )}
       </Routes>
     </>
   );
