@@ -12,7 +12,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: var(--custom-border-gray-primary);
+  background-color: #fff;
+  border-bottom: 1px solid var(--custom-border-gray-primary);
   height: 7rem;
   padding: 0 2.35rem;
 }
@@ -69,4 +70,10 @@
 .filter__checkbox--check:checked {
   color: #fff;
   accent-color: var(--custom-blue-primary);
+}
+
+@media (max-width: 450px) {
+  .filter__container {
+    top: 10rem;
+  }
 }
