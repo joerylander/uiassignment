@@ -13,7 +13,7 @@ const ProductNav: React.FC<ProductNavType> = ({ navigate, deviceTitle }) => {
       <button className="product__home-btn" onClick={() => navigate(-1)}>
         <ArrowBackIosNewIcon />
       </button>
-      <h3 className="product__title">{deviceTitle || ""}</h3>
+      <h3 className="product__title">{deviceTitle ?? ""}</h3>
     </section>
   );
 };

@@ -33,7 +33,6 @@ function App() {
             element={loaded && <Product data={data.devices} />}
           />
         )}
-        {/* Error Message Component if failed to retrieve data */}
       </Routes>
     </>
   );

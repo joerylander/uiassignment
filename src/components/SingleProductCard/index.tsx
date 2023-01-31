@@ -7,7 +7,6 @@ type SingleProductType = {
 };
 
 const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
-  console.log(device);
   const ProductImg = (icon: IconType) => {
     const correctResolution = resolutionSelector("xl", icon.resolutions);
     const imageSrc = iconUrlGenerator(icon.id, correctResolution);

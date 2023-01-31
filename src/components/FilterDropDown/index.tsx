@@ -59,6 +59,7 @@ const FilterDropDown: React.FC<FilterDropDownType> = ({
                   type="checkbox"
                   checked={isBool[i]}
                   className="filter__checkbox--check"
+                  readOnly
                 />
                 <label className="filter__checkbox--item">{label}</label>
               </li>

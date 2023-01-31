@@ -34,12 +34,10 @@ const Navbar: React.FC<NavbarType> = ({
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const btnName = e.currentTarget.name;
     if (btnName === "list-btn") {
-      console.log("list btn targeted");
       setViewState("list");
       setBtnToggle(true);
     }
     if (btnName === "grid-btn") {
-      console.log("grid btn targeted");
       setViewState("grid");
       setBtnToggle(false);
     }
