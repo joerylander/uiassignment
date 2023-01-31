@@ -52,6 +52,7 @@ const SingleProductCard: React.FC<SingleProductType> = ({ device }) => {
               ? device?.unifi?.network?.radios?.na?.maxPower + "watt"
               : "N/A"}
           </p>
+          {/* Found both na and ng properties with maxPower and speed. Took one. Don't know the difference */}
         </div>
 
         <div className="product__details">

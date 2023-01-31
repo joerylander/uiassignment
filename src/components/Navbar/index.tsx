@@ -55,8 +55,9 @@ const Navbar: React.FC<NavbarType> = ({
 
       <section className="nav__container">
         <IconButton name="list-btn" onClick={(e) => handleClick(e)}>
-          {!btnToggle && <BsListTask size={22} />}
-          {btnToggle && (
+          {!btnToggle ? (
+            <BsListTask size={22} />
+          ) : (
             <BsListUl
               size={22}
               style={{ backgroundColor: "rgb(246, 246, 248)" }}
@@ -65,13 +66,14 @@ const Navbar: React.FC<NavbarType> = ({
         </IconButton>
 
         <IconButton name="grid-btn" onClick={(e) => handleClick(e)}>
-          {!btnToggle && (
+          {!btnToggle ? (
             <BsFillGridFill
               size={18}
               style={{ backgroundColor: "rgb(246, 246, 248)" }}
             />
+          ) : (
+            <BsGrid size={18} />
           )}
-          {btnToggle && <BsGrid size={18} />}
         </IconButton>
         <button className="nav__btn-filter">
           {/* Expand filter when clicked on that lists checkbox with names of products */}
