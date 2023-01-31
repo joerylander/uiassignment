@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarType> = ({
         setFilterInput={setFilterInput}
       />
 
-      <section className="nav__container">
+      <section className={`nav__container ${dropDownToggle ? "hidden" : ""}`}>
         <IconButton name="list-btn" onClick={(e) => handleClick(e)}>
           {!btnToggle ? (
             <BsListTask size={22} />
