@@ -5,6 +5,7 @@
   align-items: center;
   border-bottom: 1px solid var(--custom-border-gray-primary);
   padding: 0 2rem;
+  position: relative;
 }
 
 .nav__container {
@@ -39,6 +40,7 @@
 .nav__btn-filter {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .nav__btn-filter--text {

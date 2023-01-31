@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { Checkbox, FormControlLabel, MenuItem, Select } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import "./filterdropdown.css";
 
 type FilterDropDownType = {
   data: string[];
   labelValue: string[];
   setLabelValue: React.Dispatch<React.SetStateAction<string[]>>;
+  setDropDownToggle: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const FilterDropDown: React.FC<FilterDropDownType> = ({
   data,
   labelValue,
   setLabelValue,
+  setDropDownToggle,
 }) => {
   const boolArr = new Array(data.length).fill(false);
 
@@ -32,24 +34,39 @@ const FilterDropDown: React.FC<FilterDropDownType> = ({
   };
 
   return (
-    <Select
-      className="filter__wrapper"
-      sx={{ background: "red", width: "3.4rem" }}
-      inputProps={{ IconComponent: () => null }}
-    >
-      <h3 className="filter__title">Product line</h3>
-      {Array.from(data).map((label, i) => {
-        return (
-          <MenuItem key={i} onClick={() => toggleCheckboxValue(i, label)}>
-            <FormControlLabel
-              label={label}
-              control={<Checkbox checked={isBool[i]} />}
-              className="filter__checkbox"
-            />
-          </MenuItem>
-        );
-      })}
-    </Select>
+    <section className="filter__container">
+      <div className="filter__container--header">
+        <h4 className="filter__container-title">Filter</h4>
+        <button
+          className="filter__container-btn-close"
+          onClick={() => setDropDownToggle(false)}
+        >
+          <CloseIcon />
+        </button>
+      </div>
+
+      <div className="filter__wrapper">
+        <h5 className="filter__title">Product line</h5>
+        <ul>
+          {data.map((label, i) => {
+            return (
+              <li
+                key={i}
+                onClick={() => toggleCheckboxValue(i, label)}
+                className="filter__checkbox"
+              >
+                <input
+                  type="checkbox"
+                  checked={isBool[i]}
+                  className="filter__checkbox--check"
+                />
+                <label className="filter__checkbox--item">{label}</label>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 };
 

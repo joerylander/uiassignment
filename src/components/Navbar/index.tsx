@@ -25,6 +25,7 @@ const Navbar: React.FC<NavbarType> = ({
   labelValue,
 }) => {
   const [btnToggle, setBtnToggle] = useState(true);
+  const [dropDownToggle, setDropDownToggle] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterInput(e.target.value);
@@ -75,17 +76,21 @@ const Navbar: React.FC<NavbarType> = ({
             <BsGrid size={18} />
           )}
         </IconButton>
-        <button className="nav__btn-filter">
-          {/* Expand filter when clicked on that lists checkbox with names of products */}
+        <button
+          className="nav__btn-filter"
+          onClick={() => setDropDownToggle(true)}
+        >
           <h4 className="nav__btn-filter--text">Filter</h4>
-
-          <FilterDropDown
-            data={Array.from(uniqueProductList)}
-            setLabelValue={setLabelValue}
-            labelValue={labelValue}
-          />
         </button>
       </section>
+      {dropDownToggle && (
+        <FilterDropDown
+          data={Array.from(uniqueProductList)}
+          setLabelValue={setLabelValue}
+          labelValue={labelValue}
+          setDropDownToggle={setDropDownToggle}
+        />
+      )}
     </nav>
   );
 };

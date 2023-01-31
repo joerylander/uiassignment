@@ -46,4 +46,9 @@ th {
   color: var(--custom-text-black-fade-secondary);
   line-height: 2.4rem;
   text-transform: uppercase;
+  pointer-events: none;
+}
+
+tr:hover {
+  background-color: var(--custom-border-gray-primary);
 }

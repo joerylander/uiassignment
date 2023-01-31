@@ -1,6 +1,7 @@
 .card {
   border: 1px solid var(--custom-border-gray-secondary);
-  height: 22rem;
+  height: 19.3rem;
+  width: 23.3rem;
 }
 
 .card-img__wrapper {
