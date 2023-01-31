@@ -1,0 +1,31 @@
+.card {
+  border: 1px solid var(--custom-border-gray-secondary);
+  height: 19.3rem;
+  width: 23.3rem;
+}
+
+.card-img__wrapper {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--custom-bg-gray-primary);
+}
+
+.card__name-wrapper {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.card__product-name {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--custom-text-black-fade-secondary);
+}
+
+.card__line-name {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: var(--custom-text-black-fade-tertiary);
+  border: none;
+}
