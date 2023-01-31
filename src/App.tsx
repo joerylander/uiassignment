@@ -12,14 +12,20 @@ function App() {
   const [loaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(
-        "https://static.ui.com/fingerprint/ui/public.json"
-      );
+    try {
+      (async () => {
+        const { data } = await axios.get(
+          "https://static.ui.com/fingerprint/ui/public.json"
+        );
 
-      setData(data);
-      setIsLoaded(true);
-    })();
+        setData(data);
+        setIsLoaded(true);
+      })();
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error(err.message);
+      }
+    }
   }, []);
 
   return (
